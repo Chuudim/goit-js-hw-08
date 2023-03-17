@@ -11,7 +11,6 @@ if (savedState) {
   messageField.value = savedState.message;
 }
 
-
 const updateState = throttle(() => {
   const state = {
     email: emailField.value,
@@ -33,4 +32,5 @@ form.addEventListener('submit', (event) => {
   console.log({ email: state.email, message: state.message });
   emailField.value = '';
   messageField.value = '';
+  localStorage.removeItem('feedback-form-state'); // очищаємо локальне сховище
 });
